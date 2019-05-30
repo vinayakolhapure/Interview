@@ -1,5 +1,26 @@
 package com.src.practice;
 
+/*
+ * Use a DataType Student (name, avg) to return the student with max avg.
+
+Follow this logic.
+1. Iterate through the 2D array - get one student array at a time, student[0] is name, student[0] is grade.
+
+2. If student doesn't exist in map (map of String, and ArrayList<Integer>), then
+    a. create new integer list and add this student's grade to it,
+    b. add student to map.
+    c. re-calculate max
+
+3. If student exists,
+    a. get student's grades list from map
+    b. add current grade to list
+    c. add student and updated grades list to map
+    d. calculate student's avg
+    e. re-calculate max.
+
+4. Return the max student.
+ * */
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
