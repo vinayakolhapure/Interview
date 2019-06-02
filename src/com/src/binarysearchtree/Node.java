@@ -1,5 +1,10 @@
 package com.src.binarysearchtree;
 
+/*
+ * Thank you: https://www.youtube.com/watch?v=oSWTXtMglKE&list=PLI1t_8YX-Apv-UiRlnZwqqrRT8D1RhriX&index=8&t=0s
+ * 
+ * */
+
 public class Node {
 	int data;
 	Node left;
