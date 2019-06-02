@@ -20,5 +20,8 @@ public class Solution {
 		
 		System.out.println(root.contains(11));
 		System.out.println(root.contains(4));
+		
+		
+		System.out.println(root.checkBST(root));
 	}
 }
