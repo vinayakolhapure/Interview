@@ -14,6 +14,9 @@ import java.util.Map.Entry;
  * So, when we XOR all elements in the array - we are basically doing 0 XOR LONELY_INT ==> LONELY_INT
  * 
  * **** The XOR method will only work when all other numbers except the lonely are in pairs. **** 
+ * 
+ * Problem statement: https://www.hackerrank.com/challenges/lonely-integer/problem
+ * Credit: https://www.youtube.com/watch?v=eXWjCgbL01U&list=PLI1t_8YX-ApvMthLj56t1Rf-Buio5Y8KL&index=15
  * */
 
 public class LonelyInteger {
