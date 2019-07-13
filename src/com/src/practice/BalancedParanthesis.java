@@ -18,9 +18,9 @@ public class BalancedParanthesis {
 	}
 	
 	public static void main(String[] args) {
-		String input = "[{}]";
-		
-		System.out.println(isValid(input));
+		//String input = "[{}]";
+		String input = "()";
+		System.out.println(isValidSimplified(input));
 	}
 	
 	private static boolean isOpenParanthesis(char c) {
@@ -59,12 +59,12 @@ public class BalancedParanthesis {
 		return false;
 	}
 	
-	public boolean isValidSimplified(String s) {        
+	public static boolean isValidSimplified(String s) {        
         Stack<Character> parenthesis = new Stack<>();
         for (int i = 0; i < s.length(); i++) {
             char c = s.charAt(i);
             if (map.containsKey(c)) {
-                parenthesis.push(map.get(c));
+                parenthesis.push(map.get(c)); //Push the value (closed parenthesis in the stack);
             } else if (map.containsValue(c)) {
                 if (parenthesis.isEmpty() || parenthesis.pop() != c) {
                     return false;
