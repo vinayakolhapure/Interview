@@ -17,6 +17,9 @@ package com.src.practice;
  *  
  *  REMOVE DUP EASY TO UNDERSTAND -- removeDupEasyToUnderstand(int[] nums) method
  *  
+ *  start with orig as nums[0] and targetIndex as 1. As soon as you find a number where number != orig,
+ *  	1. make orig = number, 2. put number in targetIndex, 3. increment target index.
+ *  
  *  0 0 1 1 1 2 2 3 3 4
  *  
  *  0 1 1 1 1 2 2 3 3 4 (2.)
