@@ -7,6 +7,8 @@ package com.src.practice;
 		3.     21
 		4.     1211
 		5.     111221
+		
+** Thank you to --> https://www.youtube.com/watch?v=kAt-4y0qG8Q
  * */
 
 public class CountNSay {
