@@ -2,6 +2,9 @@ package com.src.practice;
 
 /*
  * https://leetcode.com/problems/remove-element/
+ * 
+ * keep i as the spot where a non target element can sit, keep skipping to increment i till you find,
+ * 	an elem that is != val
  * */
 
 public class RemoveElementFromArray {
