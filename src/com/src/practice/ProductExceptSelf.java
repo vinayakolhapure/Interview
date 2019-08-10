@@ -11,7 +11,7 @@ package com.src.practice;
 public class ProductExceptSelf {
 	public static void main(String[] args) {
 		int[] nums = {1,2,3,4};
-		int[] products = productExceptSelf(nums);
+		int[] products = productExceptSelf2(nums);
 		
 		for(int i : products) {
 			System.out.print(" " + i);
@@ -41,6 +41,27 @@ public class ProductExceptSelf {
 		for(int i = 0 ; i < len ; i++) {
 			products[i] = p_left[i] * p_right[i];
 		}
+		return products;
+	}
+	
+	public static int[] productExceptSelf2(int[] nums) {
+		//Reduce one loop during the right side multiplication
+		int len = nums.length;
+		int[] products = new int[len];
+		int product = 1;
+		
+		for(int i = 0; i < len ; i++) {
+			products[i] = product;
+			product *= nums[i];
+		}
+		
+		product = 1;
+		
+		for(int i = len-1 ; i >= 0 ; i--) {
+			products[i] *= product;
+			product *= nums[i];
+		}
+		
 		return products;
 	}
 }
