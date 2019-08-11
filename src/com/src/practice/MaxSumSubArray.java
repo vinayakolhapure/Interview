@@ -4,7 +4,9 @@ package com.src.practice;
  * Problem: https://leetcode.com/problems/maximum-subarray/
  * Thank you: https://www.youtube.com/watch?v=86CQq3pKSUw
  * 
- * Kadane's Algorithm
+ * Kadane's Algorithm - Idea is what is the max subarray sum at the current index,
+ * 	it could be max of (the number at that index, sum of number at index or current max of 
+ * 		previous elements) 
  * */
 
 public class MaxSumSubArray {
