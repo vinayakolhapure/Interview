@@ -3,6 +3,8 @@ package com.src.practice;
 /*
  * Problem: https://leetcode.com/problems/maximum-subarray/
  * Thank you: https://www.youtube.com/watch?v=86CQq3pKSUw
+ * 
+ * Kadane's Algorithm
  * */
 
 public class MaxSumSubArray {
