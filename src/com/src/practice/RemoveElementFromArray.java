@@ -19,7 +19,7 @@ public class RemoveElementFromArray {
 		//1. {3,2,2,3} -- val 3, should return 2
 		//2. {0,1,2,2,3,0,4,2} -- val 2, should return 5 (0, 1, 3, 0, 4)
 		
-		int[] nums = {0,1,2,2,3,0,4,2};
+		int[] nums = {3,2,2,3};
 		
 		System.out.println(removeElement(nums, 2));
 	}
