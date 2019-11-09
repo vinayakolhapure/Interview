@@ -1,9 +1,8 @@
 package com.src.practice;
 
 import java.util.Set;
-import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashSet;
-import java.util.List;
 
 public class IntersectionOfTwoArrays {
 
@@ -18,24 +17,33 @@ public class IntersectionOfTwoArrays {
 	}
 	
 	public static int[] intersection(int[] nums1, int[] nums2) {
-		Set<Integer> resSet = new HashSet<Integer>();
+		Set<Integer> set1 = new HashSet<Integer>();
+		Set<Integer> set2 = new HashSet<Integer>();
 		
-		Set<Integer> set = new HashSet<Integer>();
-		
-		for(int n : nums1) {
-			set.add(n);
+		for(int num : nums1) {
+			set1.add(num);
 		}
 		
-		for(int i = 0; i < nums2.length; i++) {
-			if(set.contains(nums2[i]))
-				resSet.add(nums2[i]);
+		for(int num : nums2) {
+			set2.add(num);
 		}
-		int[] result = new int[resSet.size()];
 		
-		int i = 0;
-		for(Integer n : resSet) {
-			result[i++] = n;
+		if(set1.size() >= set2.size())
+			return intersectionOfSets(set1, set2);
+		else
+			return intersectionOfSets(set2, set1);
+	}
+	
+	private static int[] intersectionOfSets(Set<Integer> set1, Set<Integer> set2) {
+		int[] result = new int[set1.size()];
+		int index = 0;
+		
+		for(int i : set2) {
+			if(set1.contains(i)) {
+				result[index++] = i;
+			}
 		}
-		return result;
+		
+		return Arrays.copyOf(result, index);
 	}
 }
