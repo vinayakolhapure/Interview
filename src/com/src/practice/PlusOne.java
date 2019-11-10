@@ -19,6 +19,7 @@ public class PlusOne {
 		int carryOut = 0;
 		int index = digits.length - 1;
 		
+		//Test if rightmost digit is 9 -- if so, add one and maintain carry
 		if(digits[index] == 9) {
 			digits[index] = 0;
 			carryOut = 1;
@@ -27,6 +28,7 @@ public class PlusOne {
 			digits[index] += 1;
 		}
 		
+		//Propogate carry across the array
 		while(carryOut != 0 && index > -1) {
 			if(digits[index] == 9) {
 				digits[index] = 0;
@@ -38,6 +40,8 @@ public class PlusOne {
 			index -= 1;
 		}
 		
+		//if a carry remains, allocate new array and,
+		//	populate elements in newArray from 1 to n by digits[0..n]
 		if(carryOut == 1) {
 			int[] newDigits = new int[digits.length+1];
 			newDigits[0] = 1;
