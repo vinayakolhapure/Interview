@@ -23,10 +23,10 @@ public class TopNBuzzwords {
 				List<Integer> l1 = m1.getValue();
 				List<Integer> l2 = m2.getValue();
 				
-				if(!l1.equals(l2))
-					return l2.get(0).compareTo(l1.get(0));
+				if(l1.get(0).equals(l2.get(0)))
+					return l2.get(1).compareTo(l1.get(1));
 				
-				return l2.get(1).compareTo(l2.get(1));
+				return l2.get(0).compareTo(l1.get(0));
 			}
 			
 		};
