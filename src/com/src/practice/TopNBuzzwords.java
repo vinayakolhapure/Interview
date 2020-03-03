@@ -4,11 +4,13 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.PriorityQueue;
+import java.util.Set;
 
 public class TopNBuzzwords {
 
@@ -32,7 +34,8 @@ public class TopNBuzzwords {
 		
 		for(int i = 0; i < quotes.size(); i++) {
 			String[] quote = quotes.get(i).split(" ");
-			boolean thisQuote = true;
+			//boolean thisQuote = true;
+			Set<String> set = new HashSet<String>();
 			
 			for(int j = 0; j < quote.length; j++) {
 				String word = quote[j].replaceAll("[!\\.,]", "");
@@ -42,16 +45,18 @@ public class TopNBuzzwords {
 						val = new LinkedList<Integer>();
 						val.add(0,1);
 						val.add(1,1);
-						thisQuote = false;
+						//thisQuote = false;
+						set.add(word);
 					} else {
 						Integer freq = val.get(0);
 						Integer count = val.get(1);
 						val.remove(0);
 						val.add(0,freq+1);
-						if(thisQuote) {//increment count only once per quote;
+						if(!set.contains(word)) {//increment count only once per quote;
 							val.remove(1);
 							val.add(1,count+1);
-							thisQuote = false;
+							//thisQuote = false;
+							set.add(word);
 						}
 					}
 					map.put(word,val);
@@ -65,7 +70,7 @@ public class TopNBuzzwords {
 		List<String> result = new ArrayList<String>();
 		
 		for(int i = 0; i < pq.size(); i++) {
-			while(!pq.isEmpty() && result.size() <= topToys) {
+			while(!pq.isEmpty() && result.size() < topToys) {
 				result.add(pq.poll().getKey());
 			}
 		}
@@ -90,7 +95,7 @@ public class TopNBuzzwords {
 				"Elmo Elmo",
 				"Elmo",
 				"Elsa Elsa!",
-				"Elsa Elmo Elsa is good",
+				"Elsa Elmo Elsa",
 				"drone",
 				"Warcraft"
 				);
