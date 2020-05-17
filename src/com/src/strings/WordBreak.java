@@ -26,15 +26,6 @@ public class WordBreak {
                             return true;
                     }
                 }
-            	
-                /*for (int end = start + 1; end <= s.length(); end++) {
-                    if (wordDictSet.contains(s.substring(start, end))) {
-                        queue.add(end);
-                        if (end == s.length()) {
-                            return true;
-                        }
-                    }
-                }*/
                 visited[start] = 1;
             }
         }
@@ -42,8 +33,8 @@ public class WordBreak {
     }
 	
 	public static void main (String[] args) {
-		String s = "aaaaaaa";//"aaaaaaa";
-		List<String> wordDict = Arrays.asList("aaaa", "aaa");
+		String s = "catsanddog";//"catsandog" would be false;
+		List<String> wordDict = Arrays.asList("cats", "dog", "sand", "and", "cat");
 		System.out.println(wordBreak(s,wordDict));
 	}
 }
