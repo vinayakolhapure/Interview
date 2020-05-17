@@ -3,6 +3,11 @@ package com.src.practice;
 public class SynchronizedExample {
 	
 	private int count = 0;
+	
+	//synchronize this increment method
+	public synchronized void increment() {
+		count++;
+	}
 
 	public static void main(String[] args) {
 		
@@ -17,7 +22,7 @@ public class SynchronizedExample {
 			public void run() {
 				
 				for(int i = 0; i < 10000; i++) {
-					count++;
+					increment();
 				}
 			}
 		});
@@ -27,7 +32,7 @@ public class SynchronizedExample {
 			public void run() {
 				
 				for(int i = 0; i < 10000; i++) {
-					count++;
+					increment();
 				}
 			}
 		});
@@ -45,9 +50,6 @@ public class SynchronizedExample {
 			e.printStackTrace();
 		}
 		
-		//This won't always work as we are trying a compound ++ operation without synchronizing
-		//1 way is to "synchronize" the operation
-		//2nd way is to use AtomicInteger in this case of incrementing integers
 		System.out.println("Count is: " + count);
 	}
 }
