@@ -10,7 +10,7 @@ public class Worker {
 	List<Integer> list1 = new ArrayList<Integer>();
 	List<Integer> list2 = new ArrayList<Integer>();
 	
-	public void stageOne() {
+	public synchronized void stageOne() {
 		
 		try {
 			Thread.sleep(1); //simulate an api call
@@ -21,7 +21,7 @@ public class Worker {
 		list1.add(random.nextInt(100));
 	}
 	
-	public void stageTwo() {
+	public synchronized void stageTwo() {
 		try {
 			Thread.sleep(1); //simulate an api call
 		} catch (InterruptedException e) {
