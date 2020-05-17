@@ -1,14 +1,11 @@
 package com.src.practice;
 
+import java.util.concurrent.atomic.AtomicInteger;
+
 public class SynchronizedExample {
 	
-	private int count = 0;
+	private AtomicInteger count = new AtomicInteger(0);
 	
-	//synchronize this increment method
-	public synchronized void increment() {
-		count++;
-	}
-
 	public static void main(String[] args) {
 		
 		SynchronizedExample s = new SynchronizedExample();
@@ -22,7 +19,7 @@ public class SynchronizedExample {
 			public void run() {
 				
 				for(int i = 0; i < 10000; i++) {
-					increment();
+					count.incrementAndGet();
 				}
 			}
 		});
@@ -32,7 +29,7 @@ public class SynchronizedExample {
 			public void run() {
 				
 				for(int i = 0; i < 10000; i++) {
-					increment();
+					count.incrementAndGet();
 				}
 			}
 		});
