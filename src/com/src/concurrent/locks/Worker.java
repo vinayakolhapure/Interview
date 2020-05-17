@@ -7,28 +7,36 @@ import java.util.ArrayList;
 public class Worker {
 	
 	Random random = new Random();
+	
+	private Object lock1 = new Object();
+	private Object lock2 = new Object();
+	
 	List<Integer> list1 = new ArrayList<Integer>();
 	List<Integer> list2 = new ArrayList<Integer>();
 	
-	public synchronized void stageOne() {
+	public void stageOne() {
 		
-		try {
-			Thread.sleep(1); //simulate an api call
-		} catch (InterruptedException e) {
-			e.printStackTrace();
+		synchronized(lock1) {
+			try {
+				Thread.sleep(1); //simulate an api call
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+			
+			list1.add(random.nextInt(100));
 		}
-		
-		list1.add(random.nextInt(100));
 	}
 	
-	public synchronized void stageTwo() {
-		try {
-			Thread.sleep(1); //simulate an api call
-		} catch (InterruptedException e) {
-			e.printStackTrace();
+	public void stageTwo() {
+		synchronized(lock2) {
+			try {
+				Thread.sleep(1); //simulate an api call
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+			
+			list2.add(random.nextInt(100));
 		}
-		
-		list2.add(random.nextInt(100));
 	}
 
 	public void process() {
