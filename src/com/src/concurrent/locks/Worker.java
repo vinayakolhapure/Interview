@@ -43,7 +43,21 @@ public class Worker {
 		
 		long start = System.currentTimeMillis();
 		
-		process();
+		Thread t1 = new Thread(new Runnable() {
+			@Override
+			public void run() {
+				process();
+			}
+		});
+		
+		t1.start();
+		
+		//wait for t1 to die before executing the below lines
+		try {
+			t1.join();
+		} catch(InterruptedException e) {
+			e.printStackTrace();
+		}
 		
 		long end = System.currentTimeMillis();
 		
