@@ -3,6 +3,10 @@ package com.src.concurrent.producerconsumer;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingDeque;
 
+/*
+ * Thank you: https://www.baeldung.com/java-blocking-queue
+ * */
+
 public class App {
 
 	public static void main(String[] args) {
