@@ -4,6 +4,7 @@ package com.src.practice;
  * We use an extra array in which we place every element of the array at its correct position 
  * i.e. the number at index i in the original array is placed at the index 
  * 					(i+k)%(length of array). 
+ * take modulo to handle cases where k is greater than the length of list
  * Then, we copy the new array to the original one.
  * */
 
